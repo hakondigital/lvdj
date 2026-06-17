@@ -50,7 +50,8 @@ export async function sendSms({ to, body, from }: SendSmsArgs): Promise<SendSmsR
     from: from || process.env.SMS_SENDER_ID || "LVDJ",
   };
 
-  const auth = Buffer.from(`${username}:${apiKey}`).toString("base64");
+  // btoa is available in both Node 16+ and the Cloudflare Workers/Edge runtime
+  const auth = btoa(`${username}:${apiKey}`);
 
   const res = await fetch(CLICKSEND_URL, {
     method: "POST",

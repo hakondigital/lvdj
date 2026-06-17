@@ -37,3 +37,9 @@ next-env.d.ts
 # transient dev artifacts
 .dev.log
 .smoke.html
+
+# cloudflare / opennext build artifacts
+.open-next
+.wrangler
+worker-configuration.d.ts
+cloudflare-env.d.ts
