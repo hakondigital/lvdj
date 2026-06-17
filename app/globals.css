@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0A0A0B;
+  --bg-2: #13131A;
+  --fg: #F5F4EF;
+  --fg-dim: #B8B7AF;
+  --gold: #E9C46A;
+  --silver: #D5D5D8;
+  --bronze: #B87333;
+  --hot: #FF2E88;
+  --ice: #00E5FF;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  font-family: var(--font-space), system-ui, sans-serif;
+  background-image:
+    radial-gradient(900px 600px at 12% -8%, rgba(124, 58, 237, 0.18), transparent 60%),
+    radial-gradient(800px 500px at 100% 8%, rgba(214, 46, 255, 0.12), transparent 65%),
+    radial-gradient(700px 600px at 50% 110%, rgba(0, 229, 255, 0.08), transparent 60%),
+    radial-gradient(600px 500px at 80% 60%, rgba(233, 196, 106, 0.07), transparent 65%);
+  background-attachment: fixed;
+}
+
+::selection {
+  background: var(--gold);
+  color: #0A0A0B;
+}
+
+/* Subtle film grain overlay applied site-wide */
+.grain::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.35 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/></svg>");
+  opacity: 0.08;
+  pointer-events: none;
+  z-index: 50;
+  mix-blend-mode: overlay;
+}
+
+/* Scanline ribbons for hero/footer ambience */
+.scanlines {
+  background-image: repeating-linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.04) 0px,
+    rgba(255, 255, 255, 0.04) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* Hairline grid used on dark sections */
+.bg-grid {
+  background-size: 56px 56px;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+}
+
+/* Outlined display headline ("stroke" text) */
+.text-stroke {
+  -webkit-text-stroke: 1.5px var(--fg);
+  color: transparent;
+}
+.text-stroke-gold {
+  -webkit-text-stroke: 1.5px var(--gold);
+  color: transparent;
+}
+
+/* Custom focus ring across form fields */
+.field {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  color: var(--fg);
+  /* 16px minimum prevents iOS Safari auto-zoom on focus */
+  font-size: 16px;
+  min-height: 48px;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+.field:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+.field:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 0 0 3px rgba(233, 196, 106, 0.18);
+}
+/* Style native date/select control elements on dark theme */
+.field::-webkit-calendar-picker-indicator {
+  filter: invert(0.7) sepia(0.5) saturate(2) hue-rotate(20deg);
+  opacity: 0.7;
+  cursor: pointer;
+}
+textarea.field {
+  min-height: 96px;
+  line-height: 1.5;
+}
+
+/* Custom scrollbar — looks deliberate */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #0A0A0B; }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #E9C46A 0%, #B87333 100%);
+  border-radius: 999px;
+  border: 2px solid #0A0A0B;
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
