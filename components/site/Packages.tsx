@@ -182,12 +182,14 @@ function PackageCard({ pkg, index }: PackageCardProps) {
           ))}
         </ul>
 
-        <div className="mt-7 pt-5 border-t border-white/5">
-          <div className="font-mono text-[10px] tracking-ultra text-bone-dim uppercase mb-2">
-            Best For
+        {pkg.bestFor && (
+          <div className="mt-7 pt-5 border-t border-white/5">
+            <div className="font-mono text-[10px] tracking-ultra text-bone-dim uppercase mb-2">
+              Best For
+            </div>
+            <p className="text-bone/90 text-sm leading-relaxed">{pkg.bestFor}</p>
           </div>
-          <p className="text-bone/90 text-sm leading-relaxed">{pkg.bestFor}</p>
-        </div>
+        )}
       </div>
 
       <footer className="px-6 pb-6">

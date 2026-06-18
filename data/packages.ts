@@ -8,7 +8,7 @@ export interface PackageInfo {
   rateLabel: string;
   blurb: string;
   inclusions: string[];
-  bestFor: string;
+  bestFor?: string;
 }
 
 export const PACKAGES: PackageInfo[] = [
@@ -27,7 +27,6 @@ export const PACKAGES: PackageInfo[] = [
       "Clean / explicit mix on request",
       "Travel within Sydney",
     ],
-    bestFor: "Small functions only — the basics, no production extras.",
   },
   {
     id: "silver",
