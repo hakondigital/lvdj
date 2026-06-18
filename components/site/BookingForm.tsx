@@ -27,6 +27,7 @@ interface FormState {
   instagram: string;
   eventType: (typeof EVENT_TYPES)[number] | "";
   eventDate: string;
+  eventDuration: string;
   location: string;
   guestCount: string;
   packageId: PackageTier | "unsure";
@@ -41,6 +42,7 @@ const INITIAL: FormState = {
   instagram: "",
   eventType: "",
   eventDate: "",
+  eventDuration: "",
   location: "",
   guestCount: "",
   packageId: "unsure",
@@ -107,8 +109,8 @@ export function BookingForm() {
 
             <div className="mt-8 space-y-4 max-w-sm">
               <Fact label="Reply time" value="< 24 hours" />
-              <Fact label="Lock-in" value="50% deposit holds the date" />
-              <Fact label="Travel" value="Sydney metro included" />
+              <Fact label="Payment" value="All methods accepted" />
+              <Fact label="Travel" value="Sydney included" />
               <Fact label="DM" value="@lv._.dj on Instagram" />
             </div>
 
@@ -274,7 +276,7 @@ export function BookingForm() {
                           </svg>
                         </div>
                       </Field>
-                      <Field label="Date" required>
+                      <Field label="Event date" required>
                         <input
                           required
                           type="date"
@@ -286,14 +288,13 @@ export function BookingForm() {
                       </Field>
                     </div>
 
-                    <div className="grid gap-5 md:grid-cols-[2fr_1fr]">
-                      <Field label="Location / venue" required>
+                    <div className="grid gap-5 md:grid-cols-2">
+                      <Field label="Duration" hint="How long you need me">
                         <input
-                          required
-                          name="location"
-                          value={form.location}
-                          onChange={update("location")}
-                          placeholder="Suburb, venue or address"
+                          name="eventDuration"
+                          value={form.eventDuration}
+                          onChange={update("eventDuration")}
+                          placeholder="e.g. 4 hours, 8pm–midnight"
                           className="field w-full px-4 py-3"
                         />
                       </Field>
@@ -309,6 +310,17 @@ export function BookingForm() {
                         />
                       </Field>
                     </div>
+
+                    <Field label="Location / venue" required>
+                      <input
+                        required
+                        name="location"
+                        value={form.location}
+                        onChange={update("location")}
+                        placeholder="Suburb, venue or address"
+                        className="field w-full px-4 py-3"
+                      />
+                    </Field>
 
                     <Field label="Package">
                       <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
@@ -371,7 +383,7 @@ export function BookingForm() {
                       >
                         <span
                           aria-hidden
-                          className="absolute inset-0 -translate-x-full bg-white/30 group-hover:animate-sweep"
+                          className="pointer-events-none absolute inset-0 -translate-x-full bg-white/30 group-hover:animate-sweep"
                         />
                         {status === "submitting" ? (
                           <>

@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 
 const STATS: Array<{ value: string; label: string }> = [
   { value: "50+", label: "Gigs Played" },
-  { value: "1.1K", label: "Followers" },
+  { value: "1.2K", label: "Followers" },
   { value: "100%", label: "Crowd Energy" },
-  { value: "$350", label: "From / Night" },
+  { value: "★", label: "Night you won't forget" },
 ];
 
 export function About() {
@@ -35,9 +35,9 @@ export function About() {
               className="text-bone text-xl md:text-2xl leading-snug max-w-2xl"
             >
               I'm <span className="text-gold">Loukas</span> — better known as
-              LV DJ. I run open-format sets across Sydney: hip-hop, house,
-              throwbacks, current bangers, and the requests you swore you'd
-              never play out loud.
+              LV DJ. I specialise in all styles of music: house, techno,
+              hip-hop, throwbacks, current bangers — and the requests you
+              swore you'd never play out loud.
             </motion.p>
             <motion.p
               initial={{ opacity: 0, y: 24 }}
@@ -54,10 +54,10 @@ export function About() {
             <ul className="mt-8 flex flex-wrap gap-2">
               {[
                 "Open-format",
-                "Pioneer rig",
-                "MC capable",
+                "Professional setup",
+                "All styles",
                 "Lights + lasers",
-                "Sydney-wide",
+                "Sydney",
               ].map((tag) => (
                 <li
                   key={tag}

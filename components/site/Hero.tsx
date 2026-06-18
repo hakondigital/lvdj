@@ -112,7 +112,7 @@ export function Hero() {
                 >
                   <span
                     aria-hidden
-                    className="absolute inset-0 -translate-x-full bg-white/30 group-hover:animate-sweep"
+                    className="pointer-events-none absolute inset-0 -translate-x-full bg-white/30 group-hover:animate-sweep"
                   />
                   <Equalizer bars={5} className="h-4 relative" barClassName="bg-ink" />
                   <span className="relative">Book a night</span>

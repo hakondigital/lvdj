@@ -21,13 +21,13 @@ export const PACKAGES: PackageInfo[] = [
     blurb:
       "Pure DJ. No fluff. Just bangers, mixed properly, on your speakers. Bring your own lights — I'll bring the energy.",
     inclusions: [
-      "Full DJ set (4 hours)",
-      "Pioneer controller + headphones",
+      "Full DJ set",
+      "DJ decks + headphones",
       "Pre-event song requests welcome",
       "Clean / explicit mix on request",
-      "Travel within Sydney metro",
+      "Travel within Sydney",
     ],
-    bestFor: "House parties, intimate gatherings, small functions.",
+    bestFor: "Small functions only — the basics, no production extras.",
   },
   {
     id: "silver",
@@ -41,10 +41,9 @@ export const PACKAGES: PackageInfo[] = [
       "Everything in Bronze",
       "Moving-head party lights",
       "Beat-synced light show",
-      "Crowd-read MC moments (no cringe)",
       "Setup + pack-down handled",
     ],
-    bestFor: "16ths, 17ths, birthdays, engagements, mid-size venues.",
+    bestFor: "Backyard parties, casual birthdays, mid-size functions where you want it to feel proper.",
   },
   {
     id: "gold",

@@ -75,7 +75,7 @@ export function Packages() {
             </h2>
           </div>
           <p className="max-w-sm text-bone-dim text-sm md:text-base leading-relaxed">
-            Flat-rate. No hidden setup fees. Travel within Sydney metro
+            Flat-rate. No hidden setup fees. Travel within Sydney
             included. Custom rigs and longer sets quoted on request.
           </p>
         </div>
@@ -88,7 +88,7 @@ export function Packages() {
         </div>
 
         <p className="mt-10 font-mono text-[11px] tracking-ultra text-bone-dim uppercase text-center md:text-left">
-          * Sydney metro included · 4-hour set baseline · extra hours from $60
+          * Sydney included · All payment methods accepted
         </p>
       </div>
     </section>
@@ -115,16 +115,26 @@ function PackageCard({ pkg, index }: PackageCardProps) {
         theme.border,
         theme.hoverBorder,
         theme.ring,
-        isGold && "md:-translate-y-3"
+        isGold && "md:-translate-y-6 md:scale-[1.04] shadow-[0_30px_80px_-20px_rgba(233,196,106,0.35)]"
       )}
     >
+      {/* Gold "Bestseller" ribbon — sits above the card on top-right */}
+      {isGold && (
+        <div className="absolute -top-3 right-4 md:-top-4 md:right-6 z-20">
+          <span className="inline-flex items-center gap-1.5 bg-gold text-ink px-3 py-1.5 font-head text-xs md:text-sm tracking-[0.18em] uppercase shadow-lg shadow-gold/30">
+            ★ Bestseller
+          </span>
+        </div>
+      )}
+
       {/* Inner gradient glow */}
       <div
         aria-hidden
         className={cn(
-          "pointer-events-none absolute inset-0 -z-10 opacity-50 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-b",
+          "pointer-events-none absolute inset-0 -z-10 transition-opacity duration-500 bg-gradient-to-b",
           theme.glow,
-          "to-transparent"
+          "to-transparent",
+          isGold ? "opacity-90" : "opacity-50 group-hover:opacity-100"
         )}
       />
 
@@ -138,11 +148,6 @@ function PackageCard({ pkg, index }: PackageCardProps) {
         >
           {theme.label}
         </span>
-        {isGold && (
-          <span className="font-mono text-[10px] tracking-ultra text-gold uppercase">
-            ★ Most Booked
-          </span>
-        )}
       </header>
 
       {/* Body */}
