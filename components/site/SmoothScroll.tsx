@@ -86,11 +86,12 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
       }
     };
 
-    document.addEventListener("click", handleHashClick);
+    // Capture phase so this runs *before* any framework onClick handler.
+    document.addEventListener("click", handleHashClick, { capture: true });
 
     return () => {
       cancelAnimationFrame(rafId);
-      document.removeEventListener("click", handleHashClick);
+      document.removeEventListener("click", handleHashClick, { capture: true });
       lenis?.destroy();
     };
   }, []);

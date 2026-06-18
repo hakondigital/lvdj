@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { LvMark } from "@/components/ui/LvMark";
 
 export function Footer() {
@@ -38,12 +37,12 @@ export function Footer() {
                 { href: "#book", label: "Book a night" },
               ].map((l) => (
                 <li key={l.href}>
-                  <Link
+                  <a
                     href={l.href}
                     className="font-head text-xl tracking-[0.12em] text-bone hover:text-gold transition-colors"
                   >
                     {l.label}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -77,12 +76,12 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <Link
+                <a
                   href="#book"
                   className="font-head text-xl tracking-[0.12em] text-bone hover:text-gold transition-colors"
                 >
                   Booking form
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

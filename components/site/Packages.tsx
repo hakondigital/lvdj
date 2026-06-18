@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { PACKAGES, type PackageInfo, type PackageTier } from "@/data/packages";
 import { cn } from "@/lib/utils";
@@ -192,7 +191,7 @@ function PackageCard({ pkg, index }: PackageCardProps) {
       </div>
 
       <footer className="px-6 pb-6">
-        <Link
+        <a
           href="#book"
           className={cn(
             "inline-flex items-center justify-center gap-2 w-full min-h-[52px] py-3.5 border font-head text-base sm:text-lg tracking-[0.18em] transition-all duration-200",
@@ -201,7 +200,7 @@ function PackageCard({ pkg, index }: PackageCardProps) {
           )}
         >
           Book {pkg.name} →
-        </Link>
+        </a>
       </footer>
     </motion.article>
   );

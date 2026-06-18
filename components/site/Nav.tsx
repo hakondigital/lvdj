@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
 import { LvMark } from "@/components/ui/LvMark";
@@ -34,7 +33,7 @@ export function Nav() {
       )}
     >
       <div className="mx-auto max-w-7xl px-5 md:px-8 h-16 flex items-center justify-between">
-        <Link href="#top" className="flex items-center gap-3 group">
+        <a href="#top" className="flex items-center gap-3 group">
           <LvMark size={36} tone="gold" />
           <div className="flex flex-col leading-none">
             <span className="font-display text-xl tracking-tightest text-bone">
@@ -44,25 +43,25 @@ export function Nav() {
               SYDNEY
             </span>
           </div>
-        </Link>
+        </a>
 
         <nav className="hidden md:flex items-center gap-1">
           {LINKS.map((link) => (
-            <Link
+            <a
               key={link.href}
               href={link.href}
               className="px-4 py-2 font-head text-base tracking-[0.18em] text-bone/70 hover:text-bone transition-colors"
             >
               {link.label}
-            </Link>
+            </a>
           ))}
-          <Link
+          <a
             href="#book"
             className="ml-3 group relative inline-flex items-center gap-2 bg-gold text-ink px-5 py-2.5 font-head text-base tracking-[0.18em]"
           >
             <Equalizer bars={4} className="h-3" barClassName="bg-ink" />
             Book a night
-          </Link>
+          </a>
         </nav>
 
         <button
@@ -101,22 +100,22 @@ export function Nav() {
       >
         <div className="px-5 py-3 flex flex-col">
           {LINKS.map((link) => (
-            <Link
+            <a
               key={link.href}
               href={link.href}
               onClick={() => setOpen(false)}
               className="flex items-center min-h-[52px] font-head text-2xl tracking-[0.12em] text-bone border-b border-white/5"
             >
               {link.label}
-            </Link>
+            </a>
           ))}
-          <Link
+          <a
             href="#book"
             onClick={() => setOpen(false)}
             className="mt-4 mb-2 inline-flex items-center justify-center min-h-[56px] bg-gold text-ink font-head text-xl tracking-[0.18em]"
           >
             Book a night →
-          </Link>
+          </a>
         </div>
       </div>
     </header>

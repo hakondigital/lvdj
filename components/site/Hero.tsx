@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Equalizer } from "@/components/ui/Equalizer";
@@ -106,7 +105,7 @@ export function Hero() {
               <div className="hidden md:block h-16 w-px bg-white/10" />
 
               <div className="flex flex-col gap-3 md:items-end">
-                <Link
+                <a
                   href="#book"
                   className="group relative inline-flex items-center justify-center gap-3 bg-gold text-ink px-6 py-4 font-head text-base sm:text-lg tracking-[0.18em] overflow-hidden w-full sm:w-auto min-h-[52px]"
                 >
@@ -116,7 +115,7 @@ export function Hero() {
                   />
                   <Equalizer bars={5} className="h-4 relative" barClassName="bg-ink" />
                   <span className="relative">Book a night</span>
-                </Link>
+                </a>
                 <div className="font-mono text-[10px] tracking-ultra text-bone-dim uppercase text-center sm:text-left md:text-right">
                   From $350 · DM @lv._.dj
                 </div>
